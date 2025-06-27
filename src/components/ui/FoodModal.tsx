@@ -31,8 +31,6 @@ const FoodModal = ({ onClose }: { onClose: () => void }) => {
     fetch("http://localhost:4900/category")
       .then((res) => res.json())
       .then((data) => {
-        // Assuming data is array of objects with 'category' as string
-        // If 'category' is nested object, normalize here
         const normalizedCategories = data.map((item: any) =>
           typeof item.category === "object"
             ? item.category.category
@@ -47,7 +45,7 @@ const FoodModal = ({ onClose }: { onClose: () => void }) => {
 
   const onDrop = useCallback(
     (acceptedFiles: File[]) => {
-      setValue("image", acceptedFiles[0]); // save file to react-hook-form
+      setValue("image", acceptedFiles[0]);
     },
     [setValue]
   );
@@ -62,10 +60,9 @@ const FoodModal = ({ onClose }: { onClose: () => void }) => {
   const { postFoodItem, loading, error } = usePostFoodItem();
 
   const onSubmit = async (data: FormValues) => {
-    // Validation: check if input category exists in categories array
     if (!categories.includes(data.category)) {
       toast.error(`Category "${data.category}" does not exist`);
-      return; // stop form submission
+      return;
     }
 
     try {

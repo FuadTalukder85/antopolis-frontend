@@ -1,9 +1,7 @@
-import { StaticImageData } from "next/image";
-
-export interface FoodItem {
-  id: number;
-  name: string;
-  image: string | StaticImageData;
-  category: "Breakfast" | "Lunch" | "Dinner";
+export type FoodItem = {
+  _id: string;
+  foodName: string;
+  category: string;
+  imagePath: string;
   price: number;
-}
+};
