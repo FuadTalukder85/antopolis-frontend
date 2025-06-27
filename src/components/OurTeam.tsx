@@ -14,13 +14,12 @@ const OurTeam = () => {
       className="relative -mt-[2px]"
       style={{
         backgroundImage: `url(https://i.postimg.cc/TPMsJkCz/unsplash-Oz-BLe-Eg1mg.png)`,
-        // backgroundAttachment: "fixed",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
       <div className="absolute inset-0 bg-[#AD1519D9] z-0" />
-      <div className="container z-auto mx-auto px-6 lg:pt-12 lg:pb-44 relative">
+      <div className="max-w-7xl z-auto mx-auto px-6 lg:pt-12 lg:pb-44 relative">
         {/* section content */}
         <div className="text-center mt-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-white">

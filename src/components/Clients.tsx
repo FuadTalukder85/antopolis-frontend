@@ -11,7 +11,7 @@ const Clients = () => {
   const partnerLogos = [img01, img02, img03, img04, img05, img06, img04];
   return (
     <>
-      <section className="mt-[420px] bg-gray-50 py-20">
+      <section className="mt-[400px] bg-gray-50 py-20">
         <div className="container mx-auto px-6 lg:px-20">
           {/* section title  */}
           <div className="text-center mb-16">
