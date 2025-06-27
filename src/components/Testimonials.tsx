@@ -66,7 +66,7 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between w-full gap-10 mt-9 overflow-hidden">
+    <div className="max-w-[1300px] mx-auto flex flex-col-reverse lg:flex-row items-center justify-between w-full gap-10 mt-9 overflow-hidden">
       {/* Left: Slider Section with Motion */}
       <div className="w-full lg:w-1/2">
         <h1 className="text-black text-3xl lg:text-5xl font-black mb-4">

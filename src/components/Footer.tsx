@@ -23,7 +23,7 @@ const Footer = () => {
   return (
     <>
       <footer className="bg-[#880808] text-white">
-        <div className="w-[1300px] mx-auto py-16">
+        <div className="max-w-[1300px] mx-auto py-16">
           <div className="grid md:grid-cols-2 lg:grid-cols-12">
             {/* Restaurant Info */}
             <div className="col-span-3 space-y-4">

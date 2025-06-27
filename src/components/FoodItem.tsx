@@ -63,7 +63,7 @@ const FoodItem = () => {
     filter === "All" ? foods : foods.filter((food) => food.category === filter);
 
   return (
-    <main className="max-w-7xl mx-auto mt-36">
+    <main className="max-w-[1300px] mx-auto mt-36">
       <SectionTitle
         title="Our best Seller Dishes"
         description="Our fresh garden salad is a light and refreshing option. It features a mix of crisp lettuce, juicy tomatoe all tossed in your choice of dressing."

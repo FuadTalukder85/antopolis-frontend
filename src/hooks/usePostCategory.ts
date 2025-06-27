@@ -14,7 +14,7 @@ const usePostCategory = () => {
     setError(null);
 
     try {
-      const response = await axios.post(`${process.env.base_url}/category`, {
+      const response = await axios.post("http://localhost:4900/category", {
         category: data.category,
       });
 
