@@ -6,6 +6,8 @@ import FilterButtons from "./ui/FilterButtons";
 import FoodCard from "./ui/FoodCard";
 import food01 from "../assets/image/food01.png";
 import SectionTitle from "./ui/SectionTitle";
+import FoodModal from "./ui/FoodModal";
+import CategoryModal from "./ui/CategoryModal";
 
 const foods: FoodItem[] = [
   {
@@ -54,6 +56,8 @@ const foods: FoodItem[] = [
 
 const FoodItem = () => {
   const [filter, setFilter] = useState<string>("All");
+  const [showModal, setShowModal] = useState(false);
+  const [showCategoryModal, setShowCategoryModal] = useState(false);
 
   const filteredFoods =
     filter === "All" ? foods : foods.filter((food) => food.category === filter);
@@ -68,10 +72,16 @@ const FoodItem = () => {
       <div className="flex flex-wrap gap-4 justify-between items-center mt-14 mb-6">
         <FilterButtons selected={filter} onChange={setFilter} />
         <div className="flex gap-3 text-3xl font-normal">
-          <button className="bg-[#2C2C2C] text-white px-8 py-4 rounded-full">
+          <button
+            onClick={() => setShowModal(true)}
+            className="bg-[#2C2C2C] text-white px-8 py-4 rounded-full"
+          >
             Add Food
           </button>
-          <button className="bg-[#2C2C2C] text-white px-4 py-2 rounded-full">
+          <button
+            onClick={() => setShowCategoryModal(true)}
+            className="bg-[#2C2C2C] text-white px-4 py-4 rounded-full"
+          >
             Add Category
           </button>
         </div>
@@ -82,6 +92,11 @@ const FoodItem = () => {
           <FoodCard key={item.id} item={item} />
         ))}
       </div>
+
+      {showModal && <FoodModal onClose={() => setShowModal(false)} />}
+      {showCategoryModal && (
+        <CategoryModal onClose={() => setShowCategoryModal(false)} />
+      )}
     </main>
   );
 };
