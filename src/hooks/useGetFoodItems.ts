@@ -11,7 +11,7 @@ const useGetFoodItems = () => {
     const fetchFoodItems = async () => {
       try {
         const res = await axios.get<FoodItem[]>(
-          "http://localhost:4900/foodItem"
+          "https://antopolis-server-pi.vercel.app/foodItem"
         );
         setFoodItems(res.data);
       } catch (err: any) {

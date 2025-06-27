@@ -22,13 +22,13 @@ const FoodModal = ({ onClose }: { onClose: () => void }) => {
     },
   });
 
-  const { handleSubmit, control, reset, setValue, watch } = methods;
+  const { handleSubmit, reset, setValue, watch } = methods;
 
   const [categories, setCategories] = useState<string[]>([]);
 
   // Fetch categories on mount
   useEffect(() => {
-    fetch("http://localhost:4900/category")
+    fetch("https://antopolis-server-pi.vercel.app/category")
       .then((res) => res.json())
       .then((data) => {
         const normalizedCategories = data.map((item: any) =>
@@ -57,7 +57,7 @@ const FoodModal = ({ onClose }: { onClose: () => void }) => {
   });
 
   const image = watch("image");
-  const { postFoodItem, loading, error } = usePostFoodItem();
+  const { postFoodItem, loading } = usePostFoodItem();
 
   const onSubmit = async (data: FormValues) => {
     if (!categories.includes(data.category)) {

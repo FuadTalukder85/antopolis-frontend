@@ -4,7 +4,7 @@ import { FoodItem } from "@/types/types";
 import { FaStar } from "react-icons/fa6";
 
 const FoodCard: React.FC<{ item: FoodItem }> = ({ item }) => {
-  const imageUrl = `http://localhost:4900/uploads/${item.imagePath}`;
+  const imageUrl = `https://antopolis-server-pi.vercel.app/uploads/${item.imagePath}`;
   console.log("imageUrl", imageUrl);
 
   return (

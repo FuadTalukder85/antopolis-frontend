@@ -22,7 +22,7 @@ const usePostFoodItem = () => {
       if (data.image) formData.append("image", data.image);
 
       const response = await axios.post(
-        "http://localhost:4900/foodItem",
+        "https://antopolis-server-pi.vercel.app/foodItem",
         formData,
         {
           headers: {

@@ -14,9 +14,12 @@ const usePostCategory = () => {
     setError(null);
 
     try {
-      const response = await axios.post("http://localhost:4900/category", {
-        category: data.category,
-      });
+      const response = await axios.post(
+        "https://antopolis-server-pi.vercel.app/category",
+        {
+          category: data.category,
+        }
+      );
 
       setLoading(false);
       return response.data;
