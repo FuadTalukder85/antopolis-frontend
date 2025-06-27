@@ -1,6 +1,7 @@
 import Banner from "@/components/Banner";
 import FoodItem from "@/components/FoodItem";
-import Testimonials from "@/components/ui/Testimonials";
+import OurTeam from "@/components/OurTeam";
+import Testimonials from "@/components/Testimonials";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Banner />
       <FoodItem />
       <Testimonials />
+      <OurTeam />
     </div>
   );
 }

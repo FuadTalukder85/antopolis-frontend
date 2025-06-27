@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import clientImg from "../../assets/image/client.png";
-import chefImage from "../../assets/image/chefImage.png";
+import clientImg from "../assets/image/client.png";
+import chefImage from "../assets/image/chefImage.png";
 import Slider from "react-slick";
 import { motion } from "framer-motion";
 import "slick-carousel/slick/slick.css";
