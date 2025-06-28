@@ -33,7 +33,7 @@ const Footer = () => {
               </p>
               <div className="flex flex-col items-start space-y-4 text-white">
                 {/* Input and Button */}
-                <div className="flex overflow-hidde h-10 rounded-md bg-white">
+                <div className="flex overflow-hidde h-10 rounded-lg bg-white">
                   <input
                     type="email"
                     placeholder="Enter Your Email"

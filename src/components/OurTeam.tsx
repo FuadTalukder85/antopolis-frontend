@@ -19,7 +19,7 @@ const OurTeam = () => {
       }}
     >
       <div className="absolute inset-0 bg-[#AD1519D9] z-0" />
-      <div className="max-w-[1300px] z-auto mx-auto px-6 lg:pt-12 lg:pb-44 relative">
+      <div className="max-w-[1300px] z-auto mx-auto  lg:pt-12 lg:pb-44 relative">
         {/* section content */}
         <div className="text-center mt-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-white">

@@ -12,19 +12,19 @@ const Banner = () => {
   const menuImages = [menu01, menu02, menu03, menu04];
   const [activeIndex, setActiveIndex] = useState(0);
   const [prevIndex, setPrevIndex] = useState<number | null>(null);
-  const [direction, setDirection] = useState(true); // true = forward, false = reverse
+  const [direction, setDirection] = useState(true);
 
   const handleClick = (index: number) => {
     if (index === activeIndex) return;
     // Only allow adjacent index clicks
     if (Math.abs(index - activeIndex) === 1) {
-      setDirection(index > activeIndex); // forward if next index is larger, else reverse
+      setDirection(index > activeIndex);
       setPrevIndex(activeIndex);
       setActiveIndex(index);
     }
   };
-  const bgColors = ["#880808", "#0A4669", "#953553", "#036566"]; // example colors
-  const changeColors = ["#A52A2A", "#0A3659", "#A95C68", "#003333"]; // example colors
+  const bgColors = ["#880808", "#0A4669", "#953553", "#036566"];
+  const changeColors = ["#A52A2A", "#0A3659", "#A95C68", "#003333"];
   return (
     <motion.div
       className="bg-[#880808] relative overflow-hidden"
@@ -41,7 +41,7 @@ const Banner = () => {
       </motion.div>
 
       {/* Content */}
-      <div className="max-w-[1800px] relative mx-auto z-50 py-12">
+      <div className="lg:max-w-[1800px] relative mx-auto z-50 py-12">
         {/* Search Section */}
         <motion.div
           initial={{ y: -40, opacity: 0 }}

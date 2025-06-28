@@ -1,13 +1,37 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 
 interface Props {
   selected: string;
   onChange: (category: string) => void;
 }
 
-const categories = ["All", "Breakfast", "Lunch", "Dinner"];
-
 const FilterButtons: React.FC<Props> = ({ selected, onChange }) => {
+  const [categories, setCategories] = useState<string[]>(["All"]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE}/category`);
+        const data = await res.json();
+        // Normalize categories if needed
+        const fetchedCategories = data.map((item: any) =>
+          typeof item.category === "object"
+            ? item.category.category
+            : item.category
+        );
+
+        // Prepend "All" to the list
+        setCategories(["All", ...fetchedCategories]);
+      } catch (error) {
+        console.error("Failed to fetch categories", error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
   return (
     <div className="flex flex-wrap gap-5 mb-6">
       {categories.map((cat) => (
