@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { FoodItem } from "@/types/types"; // ✅ Use shared type
+import { FoodItem } from "@/types/types";
 
 const useGetFoodItems = () => {
   const [foodItems, setFoodItems] = useState<FoodItem[]>([]);
@@ -11,7 +11,7 @@ const useGetFoodItems = () => {
     const fetchFoodItems = async () => {
       try {
         const res = await axios.get<FoodItem[]>(
-          "https://antopolis-server-pi.vercel.app/foodItem"
+          `${process.env.NEXT_PUBLIC_API_BASE}/foodItem`
         );
         setFoodItems(res.data);
       } catch (err: any) {

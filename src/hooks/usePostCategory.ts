@@ -15,7 +15,7 @@ const usePostCategory = () => {
 
     try {
       const response = await axios.post(
-        "https://antopolis-server-pi.vercel.app/category",
+        `${process.env.NEXT_PUBLIC_API_BASE}/category`,
         {
           category: data.category,
         }

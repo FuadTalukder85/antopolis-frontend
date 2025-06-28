@@ -23,7 +23,7 @@ const CategoryModal = ({ onClose }: { onClose: () => void }) => {
     setSubmitError(null);
     try {
       await postCategory(data);
-      toast.success("✅ Category added successfully!", {
+      toast.success("Category added successfully!", {
         position: "top-right",
       });
       reset();

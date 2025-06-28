@@ -16,21 +16,28 @@ const usePostFoodItem = () => {
     setError(null);
 
     try {
-      const formData = new FormData();
-      formData.append("foodName", data.foodName);
-      formData.append("category", data.category);
-      if (data.image) formData.append("image", data.image);
+      let imageUrl = "";
+      // Step 1: Upload image to ImgBB
+      if (data.image) {
+        const imageForm = new FormData();
+        imageForm.append("image", data.image);
+        const imgBBRes = await axios.post(
+          `https://api.imgbb.com/1/upload?key=${process.env.NEXT_PUBLIC_IMGBB_API}`,
+          imageForm
+        );
+
+        imageUrl = imgBBRes.data.data.url;
+      }
+      const payload = {
+        foodName: data.foodName,
+        category: data.category,
+        image: imageUrl,
+      };
 
       const response = await axios.post(
-        "https://antopolis-server-pi.vercel.app/foodItem",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
+        `${process.env.NEXT_PUBLIC_API_BASE}/foodItem`,
+        payload
       );
-
       setLoading(false);
       return response.data;
     } catch (err: any) {

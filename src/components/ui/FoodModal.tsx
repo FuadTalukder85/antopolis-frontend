@@ -25,10 +25,9 @@ const FoodModal = ({ onClose }: { onClose: () => void }) => {
   const { handleSubmit, reset, setValue, watch } = methods;
 
   const [categories, setCategories] = useState<string[]>([]);
-
   // Fetch categories on mount
   useEffect(() => {
-    fetch("https://antopolis-server-pi.vercel.app/category")
+    fetch(`${process.env.NEXT_PUBLIC_API_BASE}/category`)
       .then((res) => res.json())
       .then((data) => {
         const normalizedCategories = data.map((item: any) =>
@@ -60,6 +59,7 @@ const FoodModal = ({ onClose }: { onClose: () => void }) => {
   const { postFoodItem, loading } = usePostFoodItem();
 
   const onSubmit = async (data: FormValues) => {
+    console.log("img", data);
     if (!categories.includes(data.category)) {
       toast.error(`Category "${data.category}" does not exist`);
       return;
