@@ -32,16 +32,16 @@ const Banner = () => {
       animate={{ backgroundColor: bgColors[activeIndex] }}
       transition={{ duration: 0.8, ease: "easeInOut" }}
     >
-      <motion.div className="absolute -top-48 -left-48 z-10">
+      <motion.div className="absolute -top-56 md:-top-48 -left-56 md:-left-48 z-10">
         <motion.div
-          className="w-[1000px] h-[1000px] rounded-full"
+          className="w-[500px] md:w-[1000px] h-[500px] md:h-[1000px] rounded-full"
           animate={{ backgroundColor: changeColors[activeIndex] }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
         />
       </motion.div>
 
       {/* Content */}
-      <div className="lg:max-w-[1800px] relative mx-auto z-50 py-12">
+      <div className="lg:max-w-[1800px] relative mx-auto z-50 py-8 md:py-12">
         {/* Search Section */}
         <motion.div
           initial={{ y: -40, opacity: 0 }}
@@ -49,21 +49,25 @@ const Banner = () => {
           transition={{ duration: 1, delay: 0.3 }}
           className="flex justify-between items-center"
         >
-          <h5 className="text-3xl font-bold text-white">RESTAURANT</h5>
-          <div className="relative">
-            <input
-              type="text"
-              placeholder="Search...."
-              className="bg-white text-[#2D2D2D] font-semibold text-2xl py-2 px-16 rounded-2xl w-[821px]"
-            />
-            <span className="absolute top-2.5 left-2.5 text-[#414141] text-2xl">
-              <CiSearch />
-            </span>
+          <h5 className="hidden md:block text-3xl font-bold text-white">
+            RESTAURANT
+          </h5>
+          <div className="relative mx-auto md:mx-0">
+            <div>
+              <input
+                type="text"
+                placeholder="Search...."
+                className="bg-white text-black font-normal text-base py-2 px-10 rounded-2xl w-[343px] md:w-[821px]"
+              />
+              <span className="absolute top-2.5 left-2.5 text-[#414141] text-2xl">
+                <CiSearch />
+              </span>
+            </div>
           </div>
         </motion.div>
 
         {/* Banner Body */}
-        <div className="flex mt-36 gap-6">
+        <div className="md:flex mt-5 md:mt-36 gap-6">
           {/* Left Section */}
           <motion.div
             initial={{ x: -100, opacity: 0 }}
@@ -71,14 +75,40 @@ const Banner = () => {
             transition={{ duration: 1, delay: 0.6 }}
             className="space-y-6"
           >
-            <h1 className="text-8xl text-white">BREAKFAST</h1>
-            <p className="w-4xl text-xl font-bold text-white">
+            <h1 className="text-[45px] md:text-8xl px-10 md:px-0 text-white">
+              BREAKFAST
+            </h1>
+            <p className="px-10 md:px-0 md:w-4xl text-base md:text-xl font-normal md:font-bold text-white">
               Breakfast, often referred to as the ‘most important meal of the
               day’, provides essential nutrients to kick start our day. It
               includes a variety of foods, like fruits, cereals, dairy products,
               and proteins, that contribute to a balanced diet.
             </p>
-
+            {/* Incoming Image responsive */}
+            <motion.div
+              key={`active-${activeIndex}`}
+              className="absolute md:hidden top-105 right-0"
+              initial={
+                direction
+                  ? { opacity: 0, x: 200, y: -200, rotate: 90 }
+                  : { opacity: 0, x: -200, y: 200, rotate: -90 }
+              }
+              animate={{ opacity: 1, x: 0, y: 0, rotate: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.9, ease: "easeInOut" }}
+              style={{
+                originX: 1,
+                originY: 0.5,
+                zIndex: 2,
+              }}
+            >
+              <Image
+                src={menuImages[activeIndex]}
+                alt={`active-${activeIndex}`}
+                height={650}
+                width={650}
+              />
+            </motion.div>
             {/* Menu Items */}
             <div className="flex gap-4">
               {menuImages.map((img, index) => (
@@ -87,7 +117,7 @@ const Banner = () => {
                   onClick={() => handleClick(index)}
                   whileTap={{ scale: 0.95 }}
                   whileHover={{ scale: 1.05 }}
-                  className="cursor-pointer"
+                  className="cursor-pointer mt-[500px] md:mt-0"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1 + index * 0.2, duration: 0.4 }}
@@ -114,13 +144,13 @@ const Banner = () => {
           </motion.div>
 
           {/* Right Images with Enter/Exit Circular Motion */}
-          <div className="w-full flex justify-end relative overflow-visible h-[625px]">
+          <div className="w-full flex justify-end relative overflow-visible md:h-[625px]">
             <AnimatePresence>
               {/* Outgoing Image */}
               {prevIndex !== null && prevIndex !== activeIndex && (
                 <motion.div
                   key={`prev-${prevIndex}`}
-                  className="absolute top-0 right-0"
+                  className="absolute top-0 right-0 hidden md:block"
                   initial={{ opacity: 1, x: 0, y: 0, rotate: 0 }}
                   animate={
                     direction
@@ -143,11 +173,10 @@ const Banner = () => {
                   />
                 </motion.div>
               )}
-
               {/* Incoming Image */}
               <motion.div
                 key={`active-${activeIndex}`}
-                className="absolute top-0 right-0"
+                className="absolute hidden md:block top-0 right-0"
                 initial={
                   direction
                     ? { opacity: 0, x: 200, y: -200, rotate: 90 }
@@ -173,11 +202,10 @@ const Banner = () => {
           </div>
         </div>
       </div>
-      {/* bottom */}
       {/* Bottom circle that only animates when menu image changes */}
       <motion.div
-        className="absolute -bottom-[420px] -right-[420px] z-10"
-        key={activeIndex} // triggers re-animation only when activeIndex changes
+        className="absolute -bottom-56 -right-56 md:-bottom-[420px] md:-right-[420px] z-10"
+        key={activeIndex}
         initial={{ scale: 1 }}
         animate={{ scale: [1, 1.02, 1] }}
         transition={{
@@ -187,7 +215,7 @@ const Banner = () => {
         }}
       >
         <motion.div
-          className="w-[1000px] h-[1000px] rounded-full"
+          className="w-[500px] md:w-[1000px] h-[500px] md:h-[1000px] rounded-full"
           animate={{ backgroundColor: changeColors[activeIndex] }}
           transition={{ duration: 0.9, ease: "easeInOut" }}
         />

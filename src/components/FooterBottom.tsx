@@ -8,7 +8,7 @@ const FooterBottom = () => {
             <p className="text-white text-base">
               Copyright &copy; {getCurrentYear}. All rights reserved.
             </p>
-            <div className="flex space-x-6 text-sm">
+            <div className="hidden md:flex space-x-6 text-sm">
               <a href="#" className="text-white">
                 Privacy Policy
               </a>

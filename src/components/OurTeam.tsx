@@ -21,22 +21,23 @@ const OurTeam = () => {
       <div className="absolute inset-0 bg-[#AD1519D9] z-0" />
       <div className="max-w-[1300px] z-auto mx-auto  lg:pt-12 lg:pb-44 relative">
         {/* section content */}
-        <div className="text-center mt-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white">
+        <div className="text-center mt-16 py-5">
+          <div className="md:hidden py-16"></div>
+          <h2 className="hidden md:block text-4xl lg:text-5xl font-bold text-white">
             Team Member
           </h2>
-          <p className="text-white font-normal text-base mt-4">
+          <p className="hidden md:block text-white font-normal text-base mt-4">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
-          <p className="text-white font-normal text-base">
+          <p className="hidden md:block  text-white font-normal text-base">
             Varius sed pharetra dictum neque massa congue
           </p>
         </div>
 
         {/* team members */}
-        <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-3 absolute justify-center mt-14">
+        <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-3 absolute justify-center -mt-20 md:mt-14">
           {members.map((member, index) => (
-            <div key={index} className="bg-white shadow">
+            <div key={index} className="bg-white shadow px-2 md:px-0">
               <Image
                 src={member?.image}
                 width={312}

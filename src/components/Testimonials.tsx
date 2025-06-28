@@ -66,10 +66,10 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="max-w-[1300px] mx-auto flex flex-col-reverse lg:flex-row items-center justify-between w-full gap-10 mt-9 overflow-hidden">
+    <div className="max-w-[1300px] mx-auto flex flex-col-reverse lg:flex-row items-center justify-between w-full gap-10 mt-9 overflow-hidden px-2 md:px-0">
       {/* Left: Slider Section with Motion */}
       <div className="w-full lg:w-1/2">
-        <h1 className="text-black text-3xl lg:text-5xl font-black mb-4">
+        <h1 className="text-black text-3xl lg:text-5xl font-black mb-4 mt-16 md:mt-0">
           Customer <span className="text-[#AD1519]">Feedback</span>
         </h1>
         <motion.div
@@ -80,10 +80,10 @@ const Testimonials = () => {
           <Slider {...settings}>
             {clients.map((client, index) => (
               <div key={index}>
-                <p className="text-[#3D3D3D] text-2xl font-normal pr-3">
+                <p className="text-[#3D3D3D] text-sm md:text-2xl font-normal pr-3">
                   {client.details}
                 </p>
-                <div className="flex gap-4 items-center mt-[138px]">
+                <div className="flex gap-4 items-center mt-20 md:mt-[138px] pb-10">
                   <Image
                     src={client.image}
                     alt="client image"
@@ -91,8 +91,8 @@ const Testimonials = () => {
                     height={74}
                     className="rounded-full border-2 border-black"
                   />
-                  <div>
-                    <h2 className="text-[#A52A2A] text-2xl font-bold">
+                  <div className="">
+                    <h2 className="text-[#A52A2A] md:text-2xl font-bold">
                       {client.name}
                     </h2>
                     <p className="text-black text-lg font-medium">
